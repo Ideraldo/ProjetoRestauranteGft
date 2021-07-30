@@ -1,0 +1,39 @@
+package com.gft.restaurante.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Mesa {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private int numero;
+	private StatusMesa status;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public StatusMesa getStatus() {
+		return status;
+	}
+	public void setStatus(StatusMesa status) {
+		this.status = status;
+	}
+	
+	
+	
+}
