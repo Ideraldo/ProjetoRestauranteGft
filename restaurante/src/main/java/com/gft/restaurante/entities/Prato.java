@@ -11,7 +11,7 @@ public class Prato {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
 	private String nome;
 	private String descricao;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+<meta charset="UTF-8">
+<div layout:fragment="content">
+
+	<div class="card">
+		<div class="card-header">
+			<p class="text-primary">Novo prato</p>
+		</div>
+		<div class="card-body">
+			<form method="POST" th:object="${prato}">
+				<div class="form-group mb-3">
+					<label for="nome">Nome do prato: </label> 
+					<input type="text" class="form-control" th:field="*{nome}" required></input>
+					
+					<label for="nome">Descricao do prato: </label> 
+					<input type="text" class="form-control" th:field="*{descricao}" required></input>
+					
+					<label for="nome">Preço do prato: </label> 
+					<input type="text" class="form-control" th:field="*{preco}" required></input>
+					
+				</div>
+				<button type="submit" class="btn btn-primary">Salvar prato</button>
+			</form>
+		</div>
+	</div>
+
+</div>
+</html>
