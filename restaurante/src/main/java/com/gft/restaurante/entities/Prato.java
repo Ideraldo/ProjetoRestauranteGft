@@ -5,16 +5,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Prato {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
+	@NotEmpty(message = "O nome não pode estar vazio.")
 	private String nome;
+	
+	@NotEmpty(message = "A descricao não pode estar vazia.")
 	private String descricao;
+	
 	private double preco;
 	
 	@ManyToOne

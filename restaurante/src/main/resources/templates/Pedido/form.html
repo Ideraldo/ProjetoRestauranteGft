@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+<meta charset="UTF-8">
+<div layout:fragment="content">
+	<div class="alert alert-primary" th:if="${mensagem != null}"
+		th:text="${mensagem}"></div>
+	<div class="card">
+		<div class="card-header">
+			<p class="text-primary">Novo pedido</p>
+		</div>
+		<div class="card-body">
+			<form method="POST" th:object="${pedido}" th:action="@{/pedido/form}">
+				<input type="hidden" th:field="*{id}">
+				<div class="form-group mb-3">
+
+					<div class="form-group mb-3">
+						<label for="nome">Prato</label>
+						<select class="form-select" th:field="*{pratos}">
+							<option th:each="prato: ${listaPratos}" th:value="${prato.id}"
+								th:text="${prato.nome}"></option>
+						</select>
+					</div>
+					
+					<div class="form-group mb-3">
+						<label for="nome">Mesa</label>
+						<select class="form-select" th:field="*{mesa}">
+							<option th:each="mesa: ${listaMesas}" th:value="${mesa.id}"
+								th:text="${mesa.numero}"></option>
+						</select>
+					</div>
+					
+					<div class="form-group mb-3">
+						<label for="nome">Status do pedido: </label> 
+						   <select class="form-select" th:field="*{statusPedido}" required>
+      							<option value="" selected> Selecione um status</option>
+      							<option value="AGUARDANDO">Aguardando confecção</option>
+    						</select>
+					</div>
+
+					<label for="nome">Quantidade: </label> <input type="text"
+						class="form-control" th:field="*{quantidade}" required></input>
+
+					
+				</div>
+				<button type="submit" class="btn btn-primary">Salvar pedido</button>
+			</form>
+		</div>
+	</div>
+
+</div>
+</html>

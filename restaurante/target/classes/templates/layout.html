@@ -28,7 +28,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Pedidos a fazer</a></li>
             <li><a class="dropdown-item" href="#">Pedidos em produção</a></li>
-            <li><a class="dropdown-item" href="#">Pedidos prontos</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Todos os pedidos</a></li>
           </ul>
@@ -39,10 +38,20 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             Garçom
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Fazer pedido</a></li>
+            <li><a class="dropdown-item" th:href="@{/pedido/form}">Fazer pedido</a></li>
             <li><a class="dropdown-item" href="#">Pedidos prontos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Todos os pedidos</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pratos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" th:href="@{/prato/form}">Cadastrar prato</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" th:href="@{/prato}">Listar pratos</a></li>
           </ul>
         </li>
         
@@ -51,8 +60,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             Administração
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" th:href="@{/prato/novo}">Cadastrar prato</a></li>
-            <li><a class="dropdown-item" th:href="@{/prato/novo}">Cadastrar mesa</a></li>
+            <li><a class="dropdown-item" th:href="@{/mesa/form}">Cadastrar mesa</a></li>
             <li><a class="dropdown-item" href="#">Cadastrar garçom</a></li>
             <li><a class="dropdown-item" href="#">Cadastrar Cheff</a></li>
             <li><a class="dropdown-item" href="#">Editar dados do restaurante</a></li>

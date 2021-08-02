@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+<meta charset="UTF-8">
+<title>Listagem de pratos</title>
+<div layout:fragment="content">
+	<div class="alert alert-primary" th:if="${#lists.isEmpty(lista)}">
+		Nenhum prato cadastrado.</div>
+<div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}"></div>
+	<div th:if="${not #lists.isEmpty(lista)}">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Descricao</th>
+					<th>Opcoes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="prato : ${lista}">
+					<td th:text="${prato.id}"></td>
+					<td th:text="${prato.nome}"></td>
+					<td th:text="${prato.descricao}"></td>
+					<td><a class="btn btn-primary btn-small"
+						th:href="@{/prato/editar(id=${prato.id})}">Editar</a> 
+						<a class="btn btn-primary btn-small"
+						onclick="return confirm('Você deseja realmente excluir esse prato?')"
+						th:href="@{/prato/excluir(id=${prato.id})}">excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+</html>

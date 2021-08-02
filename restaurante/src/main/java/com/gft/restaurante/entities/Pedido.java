@@ -16,14 +16,33 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany(mappedBy = "pedido")
+	@OneToMany
 	private List<Prato> pratos;
 	
-	@ManyToOne 
+	@ManyToOne
 	private Mesa mesa;
 
 	private double precoTotal;
+	private int quantidade;
+
+	private StatusPedido statusPedido;
 	
+	
+	public StatusPedido getStatusPedido() {
+		return statusPedido;
+	}
+
+	public void setStatusPedido(StatusPedido statusPedido) {
+		this.statusPedido = statusPedido;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 
 	public Long getId() {
 		return id;
