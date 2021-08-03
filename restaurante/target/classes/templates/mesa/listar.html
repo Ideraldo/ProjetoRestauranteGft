@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+<meta charset="UTF-8">
+<title>Listagem de mesas</title>
+<div layout:fragment="content">
+	<div class="alert alert-primary" th:if="${#lists.isEmpty(lista)}">
+		Nenhuma mesa cadastrada.</div>
+	<div class="alert alert-primary" th:if="${mensagem != null}"
+		th:text="${mensagem}"></div>
+	<div th:if="${not #lists.isEmpty(lista)}">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Numero da mesa</th>
+					<th>Status</th>
+					<th>Opcoes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="mesa : ${lista}">
+					<td th:text="${mesa.id}"></td>
+					<td th:text="${mesa.numero}"></td>
+					<td th:text="${mesa.status}"></td>
+					<td><a class="btn btn-primary btn-small"
+						th:href="@{/mesa/editar(id=${mesa.id})}">Atualizar mesa</a> <a
+						class="btn btn-primary btn-small"
+						onclick="return confirm('Você deseja realmente excluir esse mesa?')"
+						th:href="@{/mesa/excluir(id=${mesa.id})}">excluir</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+</html>

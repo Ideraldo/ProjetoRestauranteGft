@@ -29,7 +29,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             <li><a class="dropdown-item" href="#">Pedidos a fazer</a></li>
             <li><a class="dropdown-item" href="#">Pedidos em produção</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Todos os pedidos</a></li>
+            <li><a class="dropdown-item" th:href="@{/pedido}">Todos os pedidos</a></li>
           </ul>
         </li>
         
@@ -39,8 +39,9 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" th:href="@{/pedido/form}">Fazer pedido</a></li>
-            <li><a class="dropdown-item" href="#">Pedidos prontos</a></li>
+            <li><a class="dropdown-item" href="">Pedidos prontos</a></li>
             <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" th:href="@{/mesa}">Listar mesas</a></li>
           </ul>
         </li>
         

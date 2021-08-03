@@ -13,8 +13,11 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Nome</th>
-					<th>Descricao</th>
+					<th>Pratos</th>
+					<th>Quantidade</th>
+					<th>Valor</th>
+					<th>Status do pedido</th>
+					<th>Mesa</th>
 					<th>Opcoes</th>
 				</tr>
 			</thead>
@@ -22,8 +25,11 @@
 				<tr th:each="pedido : ${lista}">
 					<td th:text="${pedido.id}"></td>
 					
-					<td th:text="${pedido.nome}"></td>
-					<td th:text="${pedido.descricao}"></td>
+					<td th:text="${pedido.toString}"></td>
+					<td th:text="${pedido.quantidade}"></td>
+					<td th:text="${pedido.precoTotal}"></td>
+					<td th:text="${pedido.statusPedido}"></td>
+					<td th:text="${pedido.mesa.numero}"></td>
 					
 					<td><a class="btn btn-primary btn-small"
 						th:href="@{/pedido/editar(id=${pedido.id})}">Editar</a> 

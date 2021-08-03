@@ -1,11 +1,12 @@
 package com.gft.restaurante.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -21,10 +22,10 @@ public class Prato {
 	@NotEmpty(message = "A descricao não pode estar vazia.")
 	private String descricao;
 	
-	private double preco;
+	@ManyToMany(mappedBy ="pratos")
+	private List<Pedido> pedidos;
 	
-	@ManyToOne
-	private Pedido pedido;
+	private double preco;
 	
 	public Long getId() {	
 		return id;
