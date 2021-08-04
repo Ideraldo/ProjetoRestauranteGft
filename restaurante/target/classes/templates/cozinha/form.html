@@ -11,19 +11,19 @@
 			<p class="text-primary">Novo pedido</p>
 		</div>
 		<div class="card-body">
-			<form method="POST" th:object="${pedido}" th:action="@{/pedido/form}">
+		<form method="POST" th:object="${pedido}" th:action="@{'/pedido/afazer?status=' + ${#strings.toLowerCase(pedido.statusPedido)}}">
 				<input type="hidden" th:field="*{id}">
 				<div class="form-group mb-3">
 					
-					<div>
-					<label for="nome">Pratos: (segure a tecla SHIFT e clique nomes dos desenvolvedores que estão no projeto para seleciona-los)</label>
+					<div class="collapse">
+					<label for="nome"></label>
 					<select class="form-select select" multiple th:field="*{pratos}">
 						<option th:each="prato: ${listaPratos}" th:value="${prato.id}" th:text="${prato.nome}" />
 					</select>
 					<div class="text-danger" th:if="${#fields.hasErrors('pratos')}" th:errors="*{prato}"></div>
 					</div>
 					
-					<div class="form-group mb-3">
+					<div class="form-group mb-3 collapse">
 						<label for="nome">Mesa</label>
 						<select class="form-select" th:field="*{mesa}">
 							<option th:each="mesa: ${listaMesas}" th:value="${mesa.id}"
@@ -36,16 +36,19 @@
 						   <select class="form-select" th:field="*{statusPedido}" required>
       							<option value="" selected> Selecione um status</option>
       							<option value="AGUARDANDO">Aguardando confecção</option>
+      							<option value="PREPARANDO">Em preparo</option>
+      							<option value="PRONTO">Pedido pronto</option>
       							<option value="ENTREGUE">Entregue ao cliente</option>
     						</select>
 					</div>
-
+					
+					<div class="collapse">
 					<label for="nome">Quantidade: </label> <input type="text"
 						class="form-control" th:field="*{quantidade}" required></input>
-
+					</div>
 					
 				</div>
-				<button type="submit" class="btn btn-primary">Salvar pedido</button>
+				<button type="submit" class="btn btn-primary">Atualizar status</button>
 			</form>
 		</div>
 	</div>

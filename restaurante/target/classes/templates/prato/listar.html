@@ -15,6 +15,7 @@
 					<th>Id</th>
 					<th>Nome</th>
 					<th>Descricao</th>
+					<th>Preço</th>
 					<th>Opcoes</th>
 				</tr>
 			</thead>
@@ -23,6 +24,7 @@
 					<td th:text="${prato.id}"></td>
 					<td th:text="${prato.nome}"></td>
 					<td th:text="${prato.descricao}"></td>
+					<td th:text="${prato.preco}"></td>
 					<td><a class="btn btn-primary btn-small"
 						th:href="@{/prato/editar(id=${prato.id})}">Editar</a> 
 						<a class="btn btn-primary btn-small"

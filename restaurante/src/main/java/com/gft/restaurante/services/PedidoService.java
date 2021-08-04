@@ -2,6 +2,7 @@ package com.gft.restaurante.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,4 +41,14 @@ public class PedidoService {
 		
 	}
 	
+	public List<Pedido> buscarPedidoPorStatus(String status) {
+		
+		List<Pedido> lista = pedidoRepository.findAll();
+		return lista.stream()
+				.filter(p -> p.getStatusPedido()
+						.getStatus()
+						.equals(status))
+				.collect(Collectors.toList());
+	}
+		
 }

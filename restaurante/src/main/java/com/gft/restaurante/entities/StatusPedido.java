@@ -5,7 +5,8 @@ public enum StatusPedido {
 	
 	AGUARDANDO("aguardando"),
 	PREPARANDO("preparando"),
-	PRONTO("pronto");
+	PRONTO("pronto"),
+	ENTREGUE("entregue");
 	
 	StatusPedido(String status) {
 		this.status = status;

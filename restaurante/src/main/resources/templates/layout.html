@@ -10,7 +10,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<div id="menu">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Restaurante GFT</a>
+    <a class="navbar-brand" th:href="@{/}">Restaurante GFT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,8 +26,8 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             Cozinha
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Pedidos a fazer</a></li>
-            <li><a class="dropdown-item" href="#">Pedidos em produção</a></li>
+            <li><a class="dropdown-item" th:href="@{/pedido/afazer?status=aguardando}">Pedidos a fazer</a></li>
+            <li><a class="dropdown-item" th:href="@{/pedido/afazer?status=preparando}">Pedidos em produção</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" th:href="@{/pedido}">Todos os pedidos</a></li>
           </ul>
@@ -39,7 +39,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" th:href="@{/pedido/form}">Fazer pedido</a></li>
-            <li><a class="dropdown-item" href="">Pedidos prontos</a></li>
+            <li><a class="dropdown-item" th:href="@{/pedido/afazer?status=pronto}">Pedidos prontos</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" th:href="@{/mesa}">Listar mesas</a></li>
           </ul>
@@ -71,10 +71,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
         </li>
       </ul>
       
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
     </div>
   </div>
 </nav>

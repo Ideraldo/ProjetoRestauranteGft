@@ -59,7 +59,9 @@ public class Pedido {
 	}
 
 	public double getPrecoTotal() {
-		return precoTotal;
+		this.precoTotal = 0;
+		precoTotal = this.pratos.stream().mapToDouble(p -> p.getPreco()).sum();
+		return precoTotal*quantidade;
 	}
 
 	public void setPrecoTotal(double precoTotal) {
@@ -95,6 +97,5 @@ public class Pedido {
 		return pratos.stream().map(p -> p.getNome()).collect(Collectors.toList()).toString();
 		
 	}
-	
-	
+		
 }

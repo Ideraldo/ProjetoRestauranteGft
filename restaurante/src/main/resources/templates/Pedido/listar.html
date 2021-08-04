@@ -13,10 +13,10 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Pratos</th>
+					<th>Status do pedido</th>
 					<th>Quantidade</th>
 					<th>Valor</th>
-					<th>Status do pedido</th>
+					<th>Pratos</th>
 					<th>Mesa</th>
 					<th>Opcoes</th>
 				</tr>
@@ -25,10 +25,10 @@
 				<tr th:each="pedido : ${lista}">
 					<td th:text="${pedido.id}"></td>
 					
-					<td th:text="${pedido.toString}"></td>
+					<td th:text="${pedido.statusPedido}"></td>
 					<td th:text="${pedido.quantidade}"></td>
 					<td th:text="${pedido.precoTotal}"></td>
-					<td th:text="${pedido.statusPedido}"></td>
+					<td th:text="${pedido.toString}"></td>
 					<td th:text="${pedido.mesa.numero}"></td>
 					
 					<td><a class="btn btn-primary btn-small"

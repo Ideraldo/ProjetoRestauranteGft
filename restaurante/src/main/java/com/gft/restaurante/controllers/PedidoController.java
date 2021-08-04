@@ -109,4 +109,51 @@ public class PedidoController {
 		return mv;
 	}
 	
+	@RequestMapping("/afazer")
+	public ModelAndView listarPedidosAFazer(@RequestParam String status) {
+		ModelAndView mv = new ModelAndView("cozinha/listar.html");
+		mv.addObject("lista", pedidoService.buscarPedidoPorStatus(status));
+		//mv.addObject("status", status);
+		
+		return mv;
+	}
+	
+	@RequestMapping("/atualizarstatus")
+	public ModelAndView atualizarStatus(@RequestParam Long id) {
+		
+		
+		ModelAndView mv = new ModelAndView("cozinha/form.html");
+		Pedido pedido;
+		
+		try {
+			pedido = pedidoService.obterPedido(id);
+		}catch(Exception e) {
+			pedido = new Pedido();
+			mv.addObject("mensagem", e.getMessage());
+		}
+		
+		mv.addObject("pedido", pedido);
+		mv.addObject("listaPratos", pratoService.listarPratos());
+		mv.addObject("listaMesas", mesaService.listarMesas());
+		
+		return mv;
+	}	
+	
+	@RequestMapping(method = RequestMethod.POST, path = "/afazer")
+	public ModelAndView salvarStatus(@Valid Pedido pedido, BindingResult bindingResult, @RequestParam String status) {
+
+		ModelAndView mv = new ModelAndView("cozinha/listar.html");
+		
+		if(bindingResult.hasErrors()) {
+			mv.addObject("pedido", pedido);
+			return mv;
+		}
+		
+		pedidoService.salvarPedido(pedido);
+		
+		mv.addObject("lista", pedidoService.buscarPedidoPorStatus(status));
+		mv.addObject("status", status);
+		return mv;
+	}
+
 }

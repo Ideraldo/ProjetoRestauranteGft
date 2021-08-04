@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorate="~{layout.html}"
->
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
 <meta charset="UTF-8">
 <div layout:fragment="content">
-	Index
+	<div class="card">
+		<div class="card-header">Resumo do projeto</div>
+		<div class="card-body">
+			<blockquote class="blockquote mb-0 container text-center">
+				<h1 class="card-title">Restaurante GFT</h1>
+				<p class="card-subtitle">O projeto consiste na simulação de um
+					software de restaurante.</p>
+				<h3 class="mb-3">São separadas as seções da seguinte forma:</h3>
+
+				<h2>Cozinha:</h2>
+				<p>Acesso aos pedidos que precisam ser feitos, podendo alterar
+					os status deles, conforme o prato é produzido.</p>
+
+				<h2>Garçom:</h2>
+				<p>Acesso à opção de listar e fazer pedidos, e também a de listar as mesas.</p>
+
+				<h2>Prato:</h2>
+				<p>Acesso rápido à opção de cadastrar um novo prato e também listar os já existentes.</p>
+
+				<h2>Administração:</h2>
+				<p>Acesso a todas as opções de listagem e cadastro das entidades que compõe o restaurante.</p>
+			</blockquote>
+		</div>
+	</div>
 </div>
 
 </html>
